@@ -1,0 +1,15 @@
+nav {
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+::ng-deep nav .p-menubar {
+  width: 100%;
+  font-family: var(--font-primary);
+}
+
+::ng-deep nav .p-menubar-root-list {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
