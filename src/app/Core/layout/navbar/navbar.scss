@@ -15,15 +15,13 @@
 
 ::ng-deep .p-menubar:not(.p-menubar-mobile) {
   background-color: white !important;
-  border: 1px solid #e5e7eb !important;
-  border-radius: 50px !important;
-  padding: 0.2rem 1rem !important;
+  border-radius: 5px !important;
+  padding: 1.5px !important;
 }
 
 ::ng-deep .p-menubar.p-menubar-mobile {
   background-color: transparent !important;
   border: none !important;
-  border-radius: 0 !important;
   padding: 0 !important;
   width: 100%;
 }
