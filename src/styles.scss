@@ -1,11 +1,47 @@
 @import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
 
 :root {
   --font-primary: 'Nunito', sans-serif;
+  --color-primary: #1e1b2e;
+  --color-secondary: #DB277C;
 }
 
-body {
+body, html {
   font-family: var(--font-primary);
   margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+}
+
+/* ── PrimeNG fixes ── */
+.p-toolbar {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.p-menubar {
+  border: none !important;
+}
+
+.p-menubar .p-menubar-button {
+  background-color: transparent !important;
+}
+
+.p-menubar .p-menubar-item:hover > .p-menubar-item-link {
+  background-color: transparent !important;
+}
+
+.p-menubar .p-submenu-list {
+  border-radius: 8px !important;
+  padding: 0.4rem !important;
+}
+
+.p-menubar .p-submenu-list .p-menubar-item:hover > .p-menubar-item-link {
+  border-radius: 6px !important;
 }
