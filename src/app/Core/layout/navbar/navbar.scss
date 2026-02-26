@@ -35,10 +35,6 @@
   transition: color 0.2s;
 }
 
-::ng-deep .p-menubar .p-menubar-item:hover .p-menubar-item-label {
-  color: var(--color-primary);
-}
-
 ::ng-deep .p-menubar .p-submenu-list {
   background-color: white !important;
   border: 1px solid #e5e7eb !important;
