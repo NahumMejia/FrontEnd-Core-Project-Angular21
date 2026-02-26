@@ -1,15 +1,67 @@
-nav {
+:host {
+  display: block;
   width: 100%;
-  border-bottom: 1px solid #e5e7eb;
 }
 
-::ng-deep nav .p-menubar {
-  width: 100%;
-  font-family: var(--font-primary);
+::ng-deep .p-toolbar {
+  background-color: var(--color-primary) !important;
 }
 
-::ng-deep nav .p-menubar-root-list {
+::ng-deep .p-toolbar-center {
+  width: 100%;
   display: flex;
   justify-content: center;
-  flex: 1;
+}
+
+::ng-deep .p-menubar:not(.p-menubar-mobile) {
+  background-color: white !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 50px !important;
+  padding: 0.2rem 1rem !important;
+}
+
+::ng-deep .p-menubar.p-menubar-mobile {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+}
+
+::ng-deep .p-menubar .p-menubar-item-link {
+  padding: 0.4rem 0.75rem !important;
+}
+
+::ng-deep .p-menubar .p-menubar-item-label {
+  color: #555;
+  transition: color 0.2s;
+}
+
+::ng-deep .p-menubar .p-menubar-item:hover .p-menubar-item-label {
+  color: var(--color-primary);
+}
+
+::ng-deep .p-menubar .p-submenu-list {
+  background-color: white !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+::ng-deep .p-menubar .p-submenu-list .p-menubar-item-label {
+  color: #555 !important;
+}
+
+::ng-deep .p-menubar .p-submenu-list .p-menubar-item:hover > .p-menubar-item-link {
+  background-color: #fdf0f6 !important;
+}
+
+::ng-deep .p-menubar .p-submenu-list .p-menubar-item:hover .p-menubar-item-label {
+  color: var(--color-primary) !important;
+}
+
+::ng-deep .p-menubar .p-menubar-button {
+  color: #aaa !important;
+}
+
+::ng-deep .p-menubar .p-menubar-button:hover {
+  color: #fff !important;
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { ToolbarModule } from 'primeng/toolbar';
 import { MenubarModule } from 'primeng/menubar';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MenubarModule],
+  imports: [ToolbarModule, MenubarModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
