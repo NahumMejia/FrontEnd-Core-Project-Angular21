@@ -1,0 +1,10 @@
+<footer class="flex flex-column align-items-center py-3 gap-3">
+  <div class="flex align-items-center gap-5">
+    @for (item of footerItems; track item.name) {
+      <a [href]="item.url" target="_blank" [title]="item.name" class="footer-icon-link">
+        <i [class]="'pi ' + item.icon"></i>
+      </a>
+    }
+  </div>
+  <span class="footer-copy">© {{ currentYear }} MyApp. All rights reserved.</span>
+</footer>
