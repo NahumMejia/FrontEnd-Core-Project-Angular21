@@ -14,7 +14,7 @@ export class Navbar implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      { label: 'Home', icon: 'pi pi-home' },
+      { label: 'Home', icon: 'pi pi-home', routerLink: '/home' },
       { label: 'Features', icon: 'pi pi-star' },
       {
         label: 'Projects',

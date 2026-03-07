@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Navbar } from "./navbar/navbar";
-import { Footer } from "./footer/footer";
-import { PrimeNGModule } from '../../Shared/PrimeNG/prime-ng.imports';
+import { PrimeNGModule } from '../../shared/primeNG/prime-ng.imports';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from './navbar/navbar';
+import { Footer } from './footer/footer';
 
 @Component({
   selector: 'app-layout',
