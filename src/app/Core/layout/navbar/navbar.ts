@@ -5,6 +5,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 import { AvatarModule } from 'primeng/avatar';
 import { AuthService } from '../../services/auth.service';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class Navbar implements OnInit {
   private readonly authService = inject(AuthService);
+  private readonly notificationService = inject(NotificationService);
 
   public items: MenuItem[] | undefined;
   public userMenuItems: MenuItem[] | undefined;
@@ -38,6 +40,7 @@ export class Navbar implements OnInit {
         icon: 'pi pi-sign-out',
         command: () => {
           this.authService.logout();
+          this.notificationService.success('Logged out successfully', 'See you soon');
         },
       },
     ];
