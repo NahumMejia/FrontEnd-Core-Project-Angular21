@@ -37,6 +37,8 @@ export class AuthService {
 
   public logout() {
     const refreshToken = this.getRefreshToken();
+    this.clearTokens();
+    this.router.navigate(['/login']);
     if (refreshToken) {
       this.http.post(`${this.BASE_URL}/logout`, { refreshToken }).subscribe();
     }
