@@ -16,6 +16,10 @@ import { DividerModule } from 'primeng/divider';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { TagModule } from 'primeng/tag';
 import { SelectModule } from 'primeng/select';
+import { FormsModule } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
+import { FloatLabelModule } from 'primeng/floatlabel';
+
 
 const PRIMENG_MODULES = [
   MenubarModule,
@@ -34,7 +38,12 @@ const PRIMENG_MODULES = [
   BadgeModule,
   ChipModule,
   DividerModule,
+  PasswordModule,
+  FormsModule,
+  FloatLabelModule,
   ProgressBarModule,
+  InputTextModule,
+  DividerModule,
   TagModule,
 ];
 
