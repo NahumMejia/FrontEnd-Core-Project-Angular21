@@ -15,7 +15,6 @@ export class AuthService {
   private readonly router = inject(Router);
 
   //AUTH
-
   public register(name: string, lastName: string, username: string, email: string, password: string) {
     return this.http.post<AuthTokens>(`${this.BASE_URL}/register`, {
       name,
@@ -46,7 +45,6 @@ export class AuthService {
   }
 
   //TOKEN MANIPULATION
-
   public saveTokens(token: string, refreshToken: string): void {
     localStorage.setItem(this.TOKEN_KEY, token);
     localStorage.setItem(this.REFRESH_KEY, refreshToken);
@@ -66,7 +64,6 @@ export class AuthService {
   }
 
   //JWT
-
   public isLoggedIn(): boolean {
     const decoded = this.decodeToken();
     if (!decoded?.exp) return false;
