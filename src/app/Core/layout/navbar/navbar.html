@@ -1,5 +1,24 @@
 <p-toolbar>
+  <ng-template #start>
+    <div class="mobile-burger">
+      <p-menubar [model]="items" />
+    </div>
+  </ng-template>
+
   <ng-template #center>
-    <p-menubar [model]="items" />
+    <div class="desktop-menu">
+      <p-menubar [model]="items" />
+    </div>
+  </ng-template>
+
+  <ng-template #end>
+    <div class="user-menu-wrapper">
+      <p-avatar
+        icon="pi pi-user"
+        shape="circle"
+        (click)="userMenu.toggle($event)"
+      />
+      <p-menu #userMenu [model]="userMenuItems" [popup]="true" appendTo="body"/>
+    </div>
   </ng-template>
 </p-toolbar>
