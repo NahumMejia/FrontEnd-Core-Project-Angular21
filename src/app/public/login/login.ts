@@ -31,11 +31,8 @@ export class Login {
     this.authService.login(username, password).subscribe({
       next: ({ token, refreshToken }) => {
         this.authService.saveTokens(token, refreshToken);
-        this.notificationService.success('Bienvenido', 'Sesión iniciada correctamente');
+        this.notificationService.success('Welcome', 'Login successful');
         this.router.navigate(['/home']);
-      },
-      error: () => {
-        this.notificationService.error('Error', 'Username or password are wrong');
       },
     });
   }
