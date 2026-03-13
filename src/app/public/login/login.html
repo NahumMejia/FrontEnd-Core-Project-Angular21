@@ -37,12 +37,12 @@
               </div>
 
               <p-button
-                label="Iniciar sesión"
+                label="Register"
                 type="submit"
                 icon="pi pi-sign-in"
-                iconPos="right"
+                [loading]="isLoading()"
                 [disabled]="form.invalid"
-                styleClass="login-btn ml-auto mt-3 w-full "
+                styleClass="login-btn ml-auto mt-3 w-full"
               />
 
             </form>

@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../core/services/notification.service';
+import { catchError, finalize } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -19,25 +20,33 @@ export class Login {
   private readonly authService = inject(AuthService);
   private readonly router = inject(Router);
 
+  public isLoading = signal(false);
+
   public form = this.formBuilder.nonNullable.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
   });
 
   public onSubmit(): void {
-    if (this.form.invalid) return;
+    if (this.form.invalid || this.isLoading()) return;
+
+    this.isLoading.set(true);
     const { username, password } = this.form.getRawValue();
 
-    this.authService.login(username, password).subscribe({
-      next: ({ token, refreshToken }) => {
-        this.authService.saveTokens(token, refreshToken);
-        this.notificationService.success('Welcome', 'Login successful');
-        this.router.navigate(['/home']);
-      },
-    });
+    this.authService
+      .login(username, password)
+      .pipe(finalize(() => this.isLoading.set(false)))
+      .subscribe({
+        next: ({ token, refreshToken }) => {
+          this.authService.saveTokens(token, refreshToken);
+          this.notificationService.success('Welcome', 'Login successful');
+          this.isLoading.set(false);
+          this.router.navigate(['/home']);
+        },
+      });
   }
 
-  public navigateToRegistration():void{
+  public navigateToRegistration(): void {
     this.router.navigate(['/register']);
   }
 }

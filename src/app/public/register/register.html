@@ -1,20 +1,16 @@
 <section class="login-container flex align-items-center justify-content-center min-h-screen">
-
   <p-card class="login-card overflow-hidden">
     <ng-template #content>
       <div class="flex">
-
         <div class="login-image-panel hidden md:block">
           <img src="assets/images/defaultHomeImage.jpg" alt="Logo" />
         </div>
 
         <div class="login-form-panel flex align-items-center justify-content-center p-5">
           <div class="login-form-content flex flex-column gap-4 w-full">
-
             <h1 class="text-3xl font-bold text-900 m-0 text-center">Registration</h1>
 
             <form (submit)="onSubmit()" [formGroup]="form" class="flex flex-column gap-3">
-
               <div class="input-wrapper">
                 <i class="pi pi-user input-icon"></i>
                 <input
@@ -70,17 +66,14 @@
                 label="Register"
                 type="submit"
                 icon="pi pi-sign-in"
-                iconPos="right"
+                [loading]="isLoading()"
                 [disabled]="form.invalid"
-                styleClass="login-btn ml-auto mt-3 w-full "
+                styleClass="login-btn ml-auto mt-3 w-full"
               />
-
             </form>
           </div>
         </div>
-
       </div>
     </ng-template>
   </p-card>
-
 </section>

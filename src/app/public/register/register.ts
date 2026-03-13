@@ -30,22 +30,27 @@ export class Register {
 
   public onSubmit(): void {
     if (this.form.invalid || this.isLoading()) return;
+    this.isLoading.set(true);
     const { name, lastName, username, email, password } = this.form.getRawValue();
 
-    this.authService.register(name, lastName, username, email, password).pipe(
-      tap(() => {
-        this.isLoading.set(true);
-      }),
-      finalize(() => {
-        this.isLoading.set(false);
-      }),
-    ).subscribe({
-      next: ({ token, refreshToken }) => {
-        this.authService.saveTokens(token, refreshToken);
-        this.notificationService.success('Welcome', 'Registration successful');
-        this.router.navigate(['/home']);
-      },
-      error: () => {},
-    });
+    this.authService
+      .register(name, lastName, username, email, password)
+      .pipe(
+        tap(() => {
+          this.isLoading.set(true);
+        }),
+        finalize(() => {
+          this.isLoading.set(false);
+        }),
+      )
+      .subscribe({
+        next: ({ token, refreshToken }) => {
+          this.authService.saveTokens(token, refreshToken);
+          this.notificationService.success('Welcome', 'Registration successful');
+          this.router.navigate(['/home']);
+        },
+        error: () => this.isLoading.set(false),
+      });
+      this.isLoading.set(true);
   }
 }
