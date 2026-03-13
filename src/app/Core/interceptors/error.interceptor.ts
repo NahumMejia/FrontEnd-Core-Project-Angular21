@@ -9,11 +9,14 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
+      const backendErrors = error.error?.errors;
       const backendMessage = error.error?.message;
 
-      const { summary, detail } = backendMessage
-        ? { summary: 'Error', detail: backendMessage }
-        : (HTTP_ERROR_MESSAGES[error.status] ?? DEFAULT_ERROR_MESSAGE);
+      const { summary, detail } = backendErrors
+        ? { summary: 'Validation error', detail: Object.values(backendErrors).join('\n') }
+        : backendMessage
+          ? { summary: 'Error', detail: backendMessage }
+          : HTTP_ERROR_MESSAGES[error.status] ?? DEFAULT_ERROR_MESSAGE;
 
       notificationService.error(summary, detail);
       return throwError(() => error);

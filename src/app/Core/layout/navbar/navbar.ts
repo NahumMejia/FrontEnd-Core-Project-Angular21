@@ -36,7 +36,7 @@ export class Navbar implements OnInit {
 
     this.userMenuItems = [
       {
-        label: 'Cerrar sesión',
+        label: 'Log Out',
         icon: 'pi pi-sign-out',
         command: () => {
           this.authService.logout();
