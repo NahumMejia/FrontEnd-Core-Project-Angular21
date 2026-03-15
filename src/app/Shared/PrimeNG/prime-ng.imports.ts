@@ -19,6 +19,7 @@ import { SelectModule } from 'primeng/select';
 import { FormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { PanelModule } from 'primeng/panel';
 
 
 const PRIMENG_MODULES = [
@@ -34,6 +35,7 @@ const PRIMENG_MODULES = [
   CheckboxModule,
   RadioButtonModule,
   TableModule,
+  PanelModule,
   AvatarModule,
   BadgeModule,
   ChipModule,

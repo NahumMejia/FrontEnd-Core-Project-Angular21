@@ -23,13 +23,12 @@ export class Navbar implements OnInit {
   ngOnInit(): void {
     this.items = [
       { label: 'Home', icon: 'pi pi-home', routerLink: '/home' },
-      { label: 'Features', icon: 'pi pi-star' },
       {
-        label: 'Projects',
-        icon: 'pi pi-search',
+        label: 'Admin',
+        icon: 'pi pi-cog',
         items: [
-          { label: 'Components', icon: 'pi pi-bolt' },
-          { label: 'UI Kit', icon: 'pi pi-pencil' },
+          { label: 'Roles', icon: 'pi pi-sitemap', routerLink: '/roles' },
+          { label: 'Permissions', icon: 'pi pi-shield', routerLink: '/permissions' },
         ],
       },
     ];
