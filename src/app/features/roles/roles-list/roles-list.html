@@ -1,0 +1,56 @@
+<div class="flex justify-content-center p-4">
+  <div style="width: 100%; max-width: 900px">
+    <p-panel>
+      <ng-template #header>
+        <div class="flex align-items-center justify-content-between w-full">
+          <span class="font-semibold text-xl">Roles List</span>
+          <p-button label="Add" severity="primary" icon="pi pi-plus" raised />
+        </div>
+      </ng-template>
+
+      @if (isLoading()) {
+        <div class="flex justify-content-center align-items-center" style="min-height: 300px; height: 300px;">
+          <app-loader/>
+        </div>
+      } @else {
+        <p-table
+          [value]="roles()"
+          [paginator]="true"
+          [rows]="10"
+          [rowsPerPageOptions]="[5, 10, 20]"
+          class="mt-2"
+        >
+          <ng-template #header>
+  <tr>
+    <th pSortableColumn="id" class="text-center">ID <p-sortIcon field="id" /></th>
+    <th pSortableColumn="name" class="text-center">Name <p-sortIcon field="name" /></th>
+    <th class="text-center">Actions</th>
+  </tr>
+</ng-template>
+
+          <ng-template #body let-role>
+            <tr>
+              <td>{{ role.id }}</td>
+              <td>{{ role.name }}</td>
+              <td>
+                <p-button severity="secondary" icon="pi pi-search" class="mr-2" raised />
+                <p-button severity="info" icon="pi pi-pencil" class="mr-2" raised />
+                <p-button severity="danger" icon="pi pi-trash" raised />
+              </td>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="emptymessage">
+            <tr>
+              <td colspan="3" class="text-center text-gray-500">
+                There's no data.
+              </td>
+            </tr>
+          </ng-template>
+
+        </p-table>
+      }
+
+    </p-panel>
+  </div>
+</div>
