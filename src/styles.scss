@@ -15,81 +15,215 @@ body, html {
   width: 100%;
 }
 
-/* PrimeNG fixes */
-/* PrimeNG Toolbar & MenuBar fix */
+// Toolbar
 .p-toolbar {
   border-radius: 0 !important;
   border: none !important;
 }
 
+// Menubar
 .p-menubar {
   border: none !important;
-}
 
-.p-menubar .p-menubar-button {
-  background-color: transparent !important;
-}
-
-.p-menubar .p-menubar-item:hover > .p-menubar-item-link {
-  background-color: transparent !important;
-}
-
-.p-menubar .p-submenu-list {
-  border-radius: 8px !important;
-  padding: 0.4rem !important;
-}
-
-.p-menubar .p-submenu-list .p-menubar-item:hover > .p-menubar-item-link {
-  border-radius: 6px !important;
-}
-
-/* PrimeNG Toast fix */
-.p-toast .p-toast-message {
-  border-radius: 10px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-}
-
-.p-toast .p-toast-message.p-toast-message-success {
-  background: rgba(34, 197, 94, 0.12) !important;
-  color: #16a34a !important;
-}
-
-.p-toast .p-toast-message.p-toast-message-error {
-  background: rgba(239, 68, 68, 0.12) !important;
-  color: #dc2626 !important;
-}
-
-.p-toast .p-toast-message.p-toast-message-warn {
-  background: rgba(245, 158, 11, 0.12) !important;
-  color: #d97706 !important;
-}
-
-.p-toast .p-toast-message.p-toast-message-info {
-  background: rgba(59, 130, 246, 0.12) !important;
-  color: #2563eb !important;
-}
-
-.p-toast .p-toast-message .p-toast-summary {
-  font-weight: 700 !important;
-  font-size: 0.95rem !important;
-  color: inherit !important;
-}
-
-.p-toast .p-toast-message .p-toast-detail {
-  font-size: 0.82rem !important;
-  color: inherit !important;
-  opacity: 0.85 !important;
-}
-
-.p-toast .p-toast-message .p-toast-icon-close {
-  background-color: transparent !important;
-  opacity: 0.6;
-
-  &:hover {
-    opacity: 1;
+  .p-menubar-button {
     background-color: transparent !important;
+  }
+
+  .p-menubar-item:hover > .p-menubar-item-link {
+    background-color: transparent !important;
+  }
+
+  .p-submenu-list {
+    border-radius: 8px !important;
+    padding: 0.4rem !important;
+
+    .p-menubar-item:hover > .p-menubar-item-link {
+      border-radius: 6px !important;
+    }
+  }
+}
+
+// Toast
+.p-toast {
+  .p-toast-message {
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+  }
+
+  .p-toast-message-success {
+    background: rgba(34, 197, 94, 0.12) !important;
+    color: #16a34a !important;
+  }
+
+  .p-toast-message-error {
+    background: rgba(239, 68, 68, 0.12) !important;
+    color: #dc2626 !important;
+  }
+
+  .p-toast-message-warn {
+    background: rgba(245, 158, 11, 0.12) !important;
+    color: #d97706 !important;
+  }
+
+  .p-toast-message-info {
+    background: rgba(59, 130, 246, 0.12) !important;
+    color: #2563eb !important;
+  }
+
+  .p-toast-summary {
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    color: inherit !important;
+  }
+
+  .p-toast-detail {
+    font-size: 0.82rem !important;
+    color: inherit !important;
+    opacity: 0.85 !important;
+  }
+
+  .p-toast-icon-close {
+    background-color: transparent !important;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+      background-color: transparent !important;
+    }
+  }
+}
+
+// Panel
+.p-panel {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+
+  .p-panel-header {
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1rem 1.25rem !important;
+    border-bottom: 1px solid #e9ecef !important;
+  }
+
+  .p-panel-content {
+    padding: 1rem 1.25rem !important;
+    border-radius: 0 0 12px 12px !important;
+  }
+}
+
+// Table
+.p-datatable {
+  .p-datatable-thead > tr > th {
+    background: transparent !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 2px solid #e9ecef !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #6c757d !important;
+    padding: 0.6rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .p-datatable-tbody > tr > td {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid #f1f3f5 !important;
+    font-size: 1rem !important;
+    padding: 0.6rem 1rem !important;
+    text-align: center !important;
+  }
+
+  .p-datatable-tbody > tr:last-child > td {
+    border-bottom: none !important;
+  }
+
+  .p-datatable-tbody > tr:hover > td {
+    background: #f8f9fa !important;
+  }
+}
+
+// Paginator
+.p-paginator {
+  padding: 0.5rem !important;
+  font-size: 0.875rem !important;
+
+  .p-paginator-page,
+  .p-paginator-next,
+  .p-paginator-prev,
+  .p-paginator-first,
+  .p-paginator-last {
+    min-width: 2rem !important;
+    height: 2rem !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+// Button
+.p-button {
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+
+  .p-button-icon {
+    color: white !important;
+  }
+
+  &.p-button-sm {
+    padding: 0.35rem 0.65rem !important;
+    font-size: 1rem !important;
+  }
+
+  &.p-button-primary {
+    background-color: #1e1b2e !important;
+    border-color: #161421 !important;
+
+    &:hover {
+      background-color: #555078 !important;
+      border-color: #555078 !important;
+    }
+  }
+
+  &.p-button-secondary {
+    background-color: #0891b2 !important;
+    border-color: #0891b2 !important;
+
+    &:hover {
+      background-color: #0e7490 !important;
+      border-color: #0e7490 !important;
+    }
+  }
+
+  &.p-button-info {
+    background-color: #4f46e5 !important;
+    border-color: #4f46e5 !important;
+
+    &:hover {
+      background-color: #4338ca !important;
+      border-color: #4338ca !important;
+    }
+  }
+
+  &.p-button-danger {
+    background-color: #e11d48 !important;
+    border-color: #e11d48 !important;
+
+    &:hover {
+      background-color: #be123c !important;
+      border-color: #be123c !important;
+    }
+  }
+}
+
+// Card
+.p-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+
+  .p-card-body {
+    padding: 1.25rem !important;
   }
 }
