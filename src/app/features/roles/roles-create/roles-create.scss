@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+.permission-card {
+  border: 1.5px solid var(--surface-border);
+  background: var(--surface-card);
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: var(--primary-300);
+    background: var(--surface-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  &--active {
+    border-color: var(--primary-color) !important;
+    background: var(--primary-50) !important;
+    box-shadow: 0 4px 12px rgba(30, 27, 46, 0.12);
+  }
+}

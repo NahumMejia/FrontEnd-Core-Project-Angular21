@@ -3,10 +3,11 @@ import { RoleService } from '../service/role.service';
 import { PrimeNGModule } from '../../../shared/primeNG/prime-ng.imports';
 import { Role } from '../interfaces/role.interface';
 import { Loader } from "../../../core/components/loader/loader";
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-roles-list',
-  imports: [PrimeNGModule, Loader],
+  imports: [PrimeNGModule, Loader, RouterLink],
   templateUrl: './roles-list.html',
   styleUrl: './roles-list.scss',
 })

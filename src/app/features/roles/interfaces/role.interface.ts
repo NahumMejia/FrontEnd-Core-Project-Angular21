@@ -32,3 +32,8 @@ export interface SortInfo {
   sorted: boolean;
   unsorted: boolean;
 }
+
+export interface CreateRoleRequest {
+  name: string;
+  permissions: string[];
+}

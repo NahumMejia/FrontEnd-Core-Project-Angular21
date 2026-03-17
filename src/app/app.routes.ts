@@ -4,10 +4,10 @@ import { guestGuard } from './core/guards/guest.guard';
 import { Register } from './public/register/register';
 import { Login } from './public/login/login';
 import Home from './features/home/home';
-import RolesList from './features/roles/roles-list/roles-list';
+import { permissionGuard } from './core/guards/permission.guard';
+import { ROLES_ROUTES } from './features/roles/roles.routes';
 
 export const routes: Routes = [
-  // PUBLIC
   {
     path: 'login',
     canActivate: [guestGuard],
@@ -18,8 +18,7 @@ export const routes: Routes = [
     canActivate: [guestGuard],
     component: Register,
   },
-
-  // PROTECTED
+  //--Protected Routes--
   {
     path: '',
     loadComponent: () => import('./core/layout/layout'),
@@ -36,11 +35,13 @@ export const routes: Routes = [
       },
       {
         path: 'roles',
-        component: RolesList,
+        canActivate: [permissionGuard],
+        data: {permission: 'super_admin:read'},
+        children: ROLES_ROUTES,
       }
     ],
   },
 
-  // FALLBACK
+  // --Fallback--
   { path: '**', redirectTo: 'login' },
 ];

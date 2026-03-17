@@ -1,0 +1,136 @@
+<div class="flex justify-content-center">
+  <div style="width: 100%; max-width: 860px">
+    <p-panel>
+
+      <ng-template #header>
+        <div class="flex align-items-center justify-content-between w-full">
+          <div class="flex align-items-center gap-2">
+            <p-button
+              icon="pi pi-arrow-left"
+              severity="secondary"
+              [text]="true"
+              routerLink="/roles/list"
+            />
+            <span class="font-semibold text-xl">Create Role</span>
+          </div>
+          <p-button
+            label="Create"
+            severity="primary"
+            icon="pi pi-plus"
+            raised
+            [disabled]="form.invalid || isLoading()"
+            [loading]="isLoading()"
+            (click)="onSubmit()"
+          />
+        </div>
+      </ng-template>
+
+      @if (loadingPermissions()) {
+        <div class="flex justify-content-center align-items-center w-full" style="min-height: 300px">
+          <app-loader/>
+        </div>
+      } @else {
+        <form [formGroup]="form" class="flex flex-column gap-4 p-3">
+
+          <!-- Role Name -->
+          <div class="flex justify-content-center">
+            <div class="w-full md:w-8">
+              <p-inputgroup>
+                <p-inputgroup-addon>
+                  <i class="pi pi-tag"></i>
+                </p-inputgroup-addon>
+                <p-floatlabel variant="on">
+                  <input pInputText id="name" formControlName="name" class="w-full" />
+                  <label for="name">Role Name*</label>
+                </p-floatlabel>
+              </p-inputgroup>
+            </div>
+          </div>
+
+          <!-- User Permissions -->
+          <p-divider align="center" type="dotted">
+            <div class="flex align-items-center gap-2">
+              <i class="pi pi-user"></i>
+              <b>User</b>
+            </div>
+          </p-divider>
+          <div class="grid">
+            @for (permission of getUserPermissions(); track permission) {
+              <div class="col-12 md:col-6 lg:col-4 p-2">
+                <div
+                  class="permission-card flex align-items-center justify-content-between p-3 border-round-xl cursor-pointer w-full"
+                  [class.permission-card--active]="isSelected(permission)"
+                  (click)="togglePermission(permission)"
+                >
+                  <span class="text-sm font-medium">{{ permission | permissionLabelPipe }}</span>
+                  <p-toggleswitch
+                    [ngModel]="isSelected(permission)"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="togglePermission(permission)"
+                    (click)="$event.stopPropagation()"
+                  />
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Admin Permissions -->
+          <p-divider align="center" type="dotted">
+            <div class="flex align-items-center gap-2">
+              <i class="pi pi-cog"></i>
+              <b>Admin</b>
+            </div>
+          </p-divider>
+          <div class="grid">
+            @for (permission of getAdminPermissions(); track permission) {
+              <div class="col-12 md:col-6 lg:col-4 p-2">
+                <div
+                  class="permission-card flex align-items-center justify-content-between p-3 border-round-xl cursor-pointer w-full"
+                  [class.permission-card--active]="isSelected(permission)"
+                  (click)="togglePermission(permission)"
+                >
+                  <span class="text-sm font-medium">{{ permission | permissionLabelPipe }}</span>
+                  <p-toggleswitch
+                    [ngModel]="isSelected(permission)"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="togglePermission(permission)"
+                    (click)="$event.stopPropagation()"
+                  />
+                </div>
+              </div>
+            }
+          </div>
+
+          <!-- Super Admin Permissions -->
+          <p-divider align="center" type="dotted">
+            <div class="flex align-items-center gap-2">
+              <i class="pi pi-star"></i>
+              <b>Super Admin</b>
+            </div>
+          </p-divider>
+          <div class="grid">
+            @for (permission of getSuperAdminPermissions(); track permission) {
+              <div class="col-12 md:col-6 lg:col-4 p-2">
+                <div
+                  class="permission-card flex align-items-center justify-content-between p-3 border-round-xl cursor-pointer w-full"
+                  [class.permission-card--active]="isSelected(permission)"
+                  (click)="togglePermission(permission)"
+                >
+                  <span class="text-sm font-medium">{{ permission | permissionLabelPipe }}</span>
+                  <p-toggleswitch
+                    [ngModel]="isSelected(permission)"
+                    [ngModelOptions]="{ standalone: true }"
+                    (ngModelChange)="togglePermission(permission)"
+                    (click)="$event.stopPropagation()"
+                  />
+                </div>
+              </div>
+            }
+          </div>
+
+        </form>
+      }
+
+    </p-panel>
+  </div>
+</div>

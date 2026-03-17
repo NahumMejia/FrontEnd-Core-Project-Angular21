@@ -27,8 +27,7 @@ export class Navbar implements OnInit {
         label: 'Admin',
         icon: 'pi pi-cog',
         items: [
-          { label: 'Roles', icon: 'pi pi-sitemap', routerLink: '/roles' },
-          { label: 'Permissions', icon: 'pi pi-shield', routerLink: '/permissions' },
+          { label: 'Roles', icon: 'pi pi-sitemap', routerLink: '/roles/list' },
         ],
       },
     ];

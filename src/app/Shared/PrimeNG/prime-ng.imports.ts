@@ -20,6 +20,9 @@ import { FormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { PanelModule } from 'primeng/panel';
+import { InputGroupModule } from 'primeng/inputgroup';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 
 const PRIMENG_MODULES = [
@@ -34,11 +37,14 @@ const PRIMENG_MODULES = [
   SelectModule,
   CheckboxModule,
   RadioButtonModule,
+  ToggleSwitchModule,
   TableModule,
   PanelModule,
   AvatarModule,
   BadgeModule,
   ChipModule,
+  InputGroupModule,
+  InputGroupAddonModule,
   DividerModule,
   PasswordModule,
   FormsModule,
