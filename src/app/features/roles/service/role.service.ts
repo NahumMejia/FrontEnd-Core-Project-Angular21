@@ -23,4 +23,9 @@ export class RoleService {
   public createRole(request: CreateRoleRequest) {
     return this.http.post<void>(`${this.BASE_URL}/super-admin/roles`, request);
   }
+
+  public deleteRole(role_id: number) {
+    return this.http.delete<void>(`${this.BASE_URL}/super-admin/roles/${role_id}`);
+  }
+
 }

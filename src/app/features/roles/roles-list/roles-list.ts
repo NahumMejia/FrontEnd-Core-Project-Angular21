@@ -4,6 +4,8 @@ import { PrimeNGModule } from '../../../shared/primeNG/prime-ng.imports';
 import { Role } from '../interfaces/role.interface';
 import { Loader } from "../../../core/components/loader/loader";
 import { RouterLink } from "@angular/router";
+import { NotificationService } from '../../../core/services/notification.service';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-roles-list',
@@ -13,6 +15,8 @@ import { RouterLink } from "@angular/router";
 })
 export default class RolesList implements OnInit {
   private readonly roleService = inject(RoleService);
+  private readonly notificationService = inject(NotificationService);
+  private readonly confirmationService: ConfirmationService = inject(ConfirmationService);
 
   public roles = signal<Role[]>([]);
   public totalRecords = signal(0);
@@ -32,6 +36,32 @@ export default class RolesList implements OnInit {
       },
       error: () => {
         this.isLoading.set(false);
+      },
+    });
+  }
+
+  public deleteRole(role: Role): void {
+    this.confirmationService.confirm({
+      message: `Are you sure you want to delete <b>"${role.name}"</b>?`,
+      header: 'Delete Role',
+      icon: 'pi pi-trash',
+      acceptLabel: 'Delete',
+      rejectLabel: 'Cancel',
+      acceptButtonStyleClass: 'p-button-danger',
+      rejectButtonStyleClass: 'p-button-secondary',
+      accept: (): void => {
+        this.roleService.deleteRole(role.id).subscribe({
+          next: (): void => {
+            this.notificationService.success(
+              'Role deleted',
+              `"${role.name}" was deleted successfully`,
+            );
+            this.loadRoles();
+          },
+          error: (): void => {
+            this.notificationService.error('Error', `Failed to delete "${role.name}"`);
+          },
+        });
       },
     });
   }

@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+::ng-deep {
+  .p-confirmdialog {
+    .p-dialog-header-close-icon {
+      color: white !important;
+    }
+  }
+}

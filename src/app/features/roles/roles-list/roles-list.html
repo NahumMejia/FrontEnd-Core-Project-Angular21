@@ -35,7 +35,7 @@
               <td>
                 <p-button severity="secondary" icon="pi pi-search" class="mr-2" raised />
                 <p-button severity="info" icon="pi pi-pencil" class="mr-2" raised />
-                <p-button severity="danger" icon="pi pi-trash" raised />
+                <p-button severity="danger" icon="pi pi-trash" raised (click)="deleteRole(role)" />
               </td>
             </tr>
           </ng-template>
@@ -54,3 +54,4 @@
     </p-panel>
   </div>
 </div>
+<p-confirmDialog />

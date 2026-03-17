@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormArray, FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { PrimeNGModule } from '../../../shared/primeNG/prime-ng.imports';
 import { Loader } from '../../../core/components/loader/loader';
 import { RoleService } from '../service/role.service';
@@ -9,7 +9,7 @@ import { NotificationService } from '../../../core/services/notification.service
 
 @Component({
   selector: 'app-roles-create',
-  imports: [PrimeNGModule, Loader, ReactiveFormsModule, PermissionLabelPipe],
+  imports: [PrimeNGModule, Loader, ReactiveFormsModule, PermissionLabelPipe, RouterLink],
   templateUrl: './roles-create.html',
   styleUrl: './roles-create.scss',
 })

@@ -23,6 +23,7 @@ import { PanelModule } from 'primeng/panel';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 
 const PRIMENG_MODULES = [
@@ -38,6 +39,7 @@ const PRIMENG_MODULES = [
   CheckboxModule,
   RadioButtonModule,
   ToggleSwitchModule,
+  ConfirmDialogModule,
   TableModule,
   PanelModule,
   AvatarModule,

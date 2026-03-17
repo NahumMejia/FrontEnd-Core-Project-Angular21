@@ -168,10 +168,6 @@ body, html {
   border-radius: 8px !important;
   font-size: 1rem !important;
 
-  .p-button-icon {
-    color: white !important;
-  }
-
   &.p-button-sm {
     padding: 0.35rem 0.65rem !important;
     font-size: 1rem !important;
@@ -180,6 +176,8 @@ body, html {
   &.p-button-primary {
     background-color: #1e1b2e !important;
     border-color: #161421 !important;
+
+    .p-button-icon { color: white !important; }
 
     &:hover {
       background-color: #555078 !important;
@@ -191,6 +189,8 @@ body, html {
     background-color: #0891b2 !important;
     border-color: #0891b2 !important;
 
+    .p-button-icon { color: white !important; }
+
     &:hover {
       background-color: #0e7490 !important;
       border-color: #0e7490 !important;
@@ -201,6 +201,8 @@ body, html {
     background-color: #4f46e5 !important;
     border-color: #4f46e5 !important;
 
+    .p-button-icon { color: white !important; }
+
     &:hover {
       background-color: #4338ca !important;
       border-color: #4338ca !important;
@@ -210,6 +212,8 @@ body, html {
   &.p-button-danger {
     background-color: #e11d48 !important;
     border-color: #e11d48 !important;
+
+    .p-button-icon { color: white !important; }
 
     &:hover {
       background-color: #be123c !important;
@@ -225,5 +229,47 @@ body, html {
 
   .p-card-body {
     padding: 1.25rem !important;
+  }
+}
+
+
+// Dialog
+.p-confirmdialog {
+  .p-dialog-header-close {
+    .p-button-icon {
+      color: white !important;
+    }
+  }
+}
+
+.p-dialog-close-button {
+  .p-icon {
+    fill: white !important;
+  }
+}
+
+// Dialog close button
+.p-dialog-close-button {
+  background-color: transparent !important;
+  border: none !important;
+
+  svg path {
+    fill: white !important;
+  }
+}
+
+// Confirm dialog reject button
+.p-confirmdialog-reject-button {
+  background-color: #6b7280 !important;
+  border-color: #6b7280 !important;
+  color: white !important;
+
+  .p-button-label {
+    color: white !important;
+  }
+
+  &:hover {
+    background-color: #4b5563 !important;
+    border-color: #4b5563 !important;
   }
 }
